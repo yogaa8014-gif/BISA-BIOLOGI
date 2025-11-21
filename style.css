@@ -1,0 +1,28 @@
+/* style.css */
+
+/* Gaya untuk tombol pilihan di kuis */
+.option-btn {
+    text-align: left;
+    white-space: normal; 
+    font-size: 1.1rem;
+    padding: 10px 15px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Gaya untuk tombol yang sedang dipilih */
+.selected {
+    background-color: #0d6efd !important; /* Biru Primer Bootstrap */
+    color: white !important;
+    border-color: #0d6efd !important;
+}
+
+/* Penyesuaian tampilan card di index/bab.html */
+.card-title {
+    font-weight: bold;
+}
+
+/* Nonaktifkan fokus border pada tombol saat dinonaktifkan */
+.btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
