@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Biologi Kelas X - Pilih Bab</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-light min-vh-100">
+
+    <div class="container my-5">
+        <h1 class="text-center mb-2 text-primary">Kuis Biologi Kelas X 🔬</h1>
+        <p class="text-center text-muted mb-5" id="user-info"></p>
+        
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="chapter-list">
+            </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Memastikan data pemain sudah dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof displayChapterList === 'function') {
+                displayChapterList();
+            } else {
+                // Jika script.js gagal dimuat atau fungsi belum ada
+                document.getElementById('chapter-list').innerHTML = 
+                    '<p class="text-center text-danger">Gagal memuat daftar bab. Pastikan file script.js sudah benar.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
