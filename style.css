@@ -1,28 +1,46 @@
 /* style.css */
 
-/* Gaya untuk tombol pilihan di kuis */
-.option-btn {
-    text-align: left;
-    white-space: normal; 
-    font-size: 1.1rem;
-    padding: 10px 15px;
-    transition: background-color 0.2s, color 0.2s;
+body {
+    /* Mengatur gambar sebagai latar belakang */
+    background-image: url('WhatsApp Image 2025-11-21 at 11.26.57.jpeg');
+    
+    /* Mengatur agar gambar menutupi seluruh area background */
+    background-size: cover; 
+    
+    /* Mengatur agar gambar tidak terulang */
+    background-repeat: no-repeat;
+    
+    /* Mengatur agar gambar tetap pada posisinya saat halaman di-scroll */
+    background-attachment: fixed;
+    
+    /* Memposisikan gambar di tengah */
+    background-position: center center;
+
+    /* Opsional: Memberi warna latar belakang cadangan jika gambar gagal dimuat */
+    background-color: #e2f7e2; /* Warna hijau muda */
+
+    /* Properti lain yang mungkin sudah ada, jangan dihapus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-vh-100;
 }
 
-/* Gaya untuk tombol yang sedang dipilih */
-.selected {
-    background-color: #0d6efd !important; /* Biru Primer Bootstrap */
-    color: white !important;
-    border-color: #0d6efd !important;
+/* Jika Anda ingin konten card tetap terbaca, Anda bisa menambahkan sedikit transparansi pada card */
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan sedikit transparansi */
+    border-radius: 15px; /* Opsional: sedikit lengkungan pada sudut card */
+    padding: 20px;
 }
 
-/* Penyesuaian tampilan card di index/bab.html */
-.card-title {
-    font-weight: bold;
-}
-
-/* Nonaktifkan fokus border pada tombol saat dinonaktifkan */
-.btn:disabled {
-    opacity: 0.65;
-    cursor: not-allowed;
+/* Anda juga bisa menambahkan overlay gelap agar tulisan lebih kontras */
+.body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Overlay hitam transparan */
+    z-index: -1; /* Pastikan overlay di belakang konten */
 }
