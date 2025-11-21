@@ -26,11 +26,14 @@ function displayResultPage() {
             </div>
         `;
     } else if (finalScore < 75) {
+        // PERHATIKAN: Tidak ada lagi teks 
+
+[Image of Try Again]
+ di sini
         messageHtml = `
             <div class="alert alert-danger mt-4 text-center">
                 <h3 class="alert-heading">Coba Lagi! 😢</h3>
                 <p class="mb-0">Nilai Anda ${finalScore}. Jangan menyerah, pelajari lagi materinya!</p>
-                
             </div>
         `;
     } else {
