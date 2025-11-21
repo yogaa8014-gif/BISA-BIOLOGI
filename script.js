@@ -1,9 +1,8 @@
-// script.js
+// script.js (Versi 80 Soal Asli - 20 Soal per Bab)
 
-// === 1. DATA PERTANYAAN ===
-// Catatan: Setiap Bab harus memiliki 20 soal agar nilai total 100.
-// Di sini saya berikan contoh singkat per bab. Anda harus mengembangkannya menjadi 20 soal.
+// === 1. DATA PERTANYAAN (TOTAL 80 SOAL) ===
 const QUIZ_DATA = {
+    // --- BAB 1: VIRUS (20 SOAL) ---
     "BAB 1 VIRUS": [
         {
             question: "Virus diklasifikasikan sebagai makhluk aseluler karena...",
@@ -11,17 +10,103 @@ const QUIZ_DATA = {
             answer: "Tidak memiliki struktur sel"
         },
         {
-            question: "Materi genetik yang dimiliki oleh virus adalah...",
+            question: "Materi genetik yang dapat dimiliki oleh virus adalah...",
             options: ["Hanya DNA", "Hanya RNA", "DNA atau RNA", "Protein dan Lipid"],
             answer: "DNA atau RNA"
         },
-        // Tambahkan 18 soal lagi untuk BAB 1...
-    ].concat(Array(18).fill(null).map((_, i) => ({
-        question: `(Placeholder Soal ${i + 3} BAB 1)`,
-        options: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
-        answer: "Pilihan A"
-    }))),
+        {
+            question: "Fungsi utama dari kapsid pada virus adalah...",
+            options: ["Sebagai alat gerak", "Melindungi asam nukleat", "Melakukan metabolisme", "Menghasilkan energi"],
+            answer: "Melindungi asam nukleat"
+        },
+        {
+            question: "Tahap pada daur litik di mana virus menghancurkan sel inang setelah perbanyakan adalah...",
+            options: ["Adsorpsi", "Penetrasi", "Sintesis", "Lisis"],
+            answer: "Lisis"
+        },
+        {
+            question: "Penyakit pada manusia yang disebabkan oleh virus RNA adalah...",
+            options: ["Cacar Air", "Tifus", "Polio", "TBC"],
+            answer: "Polio"
+        },
+        {
+            question: "Perbedaan utama antara daur litik dan daur lisogenik pada replikasi virus adalah...",
+            options: ["Kecepatan replikasi", "Asam nukleat virus", "Integrasi materi genetik ke DNA inang", "Jenis sel inang"],
+            answer: "Integrasi materi genetik ke DNA inang"
+        },
+        {
+            question: "Berikut ini yang TIDAK termasuk struktur tubuh virus bakteriofag adalah...",
+            options: ["Kepala", "Leher", "Ekor", "Membran sel"],
+            answer: "Membran sel"
+        },
+        {
+            question: "Enzim yang dihasilkan virus HIV untuk mengubah RNA menjadi DNA inang disebut...",
+            options: ["Ligase", "Polimerase", "Reverse Transcriptase", "Endonuklease"],
+            answer: "Reverse Transcriptase"
+        },
+        {
+            question: "Vaksin bertujuan memberikan kekebalan terhadap penyakit virus dengan cara...",
+            options: ["Membunuh virus di dalam tubuh", "Merangsang pembentukan antibodi", "Menghambat replikasi virus", "Memperkuat sel inang"],
+            answer: "Merangsang pembentukan antibodi"
+        },
+        {
+            question: "Organisme yang diserang oleh Bakteriofag adalah...",
+            options: ["Hewan", "Tumbuhan", "Jamur", "Bakteri"],
+            answer: "Bakteri"
+        },
+        {
+            question: "Istilah 'virion' merujuk pada...",
+            options: ["Sel inang yang terinfeksi", "Virus yang tidak aktif", "Partikel virus lengkap di luar sel inang", "Selubung protein saja"],
+            answer: "Partikel virus lengkap di luar sel inang"
+        },
+        {
+            question: "Salah satu upaya pencegahan penyakit yang disebabkan oleh virus adalah...",
+            options: ["Pemberian antibiotik", "Transfusi darah", "Imunisasi", "Radioterapi"],
+            answer: "Imunisasi"
+        },
+        {
+            question: "Virus yang menyerang tanaman tembakau dan menyebabkan bercak kuning adalah...",
+            options: ["TMV", "H5N1", "HPV", "HIV"],
+            answer: "TMV"
+        },
+        {
+            question: "Tahap dalam daur lisogenik di mana DNA virus bergabung dengan DNA inang membentuk profag adalah...",
+            options: ["Adsorpsi", "Sintesis", "Penggabungan", "Perakitan"],
+            answer: "Penggabungan"
+        },
+        {
+            question: "Virus dapat dikristalkan. Hal ini menunjukkan bahwa virus...",
+            options: ["Hanya terdiri dari protein", "Bukan makhluk hidup sejati", "Memiliki membran", "Melakukan metabolisme"],
+            answer: "Bukan makhluk hidup sejati"
+        },
+        {
+            question: "Istilah untuk penyakit yang disebabkan oleh virus pada hewan adalah...",
+            options: ["Rabies", "Mosaik", "Eutrofikasi", "SARS"],
+            answer: "Rabies"
+        },
+        {
+            question: "Bagian ekor pada virus bakteriofag berfungsi untuk...",
+            options: ["Sintesis protein", "Melekatkan diri pada sel inang", "Melindungi materi genetik", "Mengatur metabolisme"],
+            answer: "Melekatkan diri pada sel inang"
+        },
+        {
+            question: "Virus influenza diklasifikasikan berdasarkan jenis materi genetiknya sebagai virus...",
+            options: ["DNA untai ganda", "DNA untai tunggal", "RNA untai ganda", "RNA untai tunggal"],
+            answer: "RNA untai tunggal"
+        },
+        {
+            question: "Organel sel inang yang paling berperan dalam proses sintesis protein virus adalah...",
+            options: ["Mitokondria", "Ribosom", "Vakuola", "Nukleus"],
+            answer: "Ribosom"
+        },
+        {
+            question: "Cara penularan virus COVID-19 utamanya melalui...",
+            options: ["Makanan yang terkontaminasi", "Kontak fisik langsung", "Cairan droplet pernapasan", "Gigitan serangga"],
+            answer: "Cairan droplet pernapasan"
+        },
+    ],
     
+    // --- BAB 2: KLASIFIKASI MAKHLUK HIDUP (20 SOAL) ---
     "BAB 2 KLASIFIKASI MAKHLUK HIDUP": [
         {
             question: "Tokoh yang memperkenalkan sistem tata nama ganda (Binomial Nomenclature) adalah...",
@@ -33,13 +118,99 @@ const QUIZ_DATA = {
             options: ["Filum, Kelas, Ordo, Famili, Genus, Spesies", "Spesies, Genus, Famili, Ordo, Kelas, Filum", "Kelas, Filum, Ordo, Famili, Genus, Spesies", "Filum, Kelas, Famili, Ordo, Genus, Spesies"],
             answer: "Filum, Kelas, Ordo, Famili, Genus, Spesies"
         },
-        // Tambahkan 18 soal lagi untuk BAB 2...
-    ].concat(Array(18).fill(null).map((_, i) => ({
-        question: `(Placeholder Soal ${i + 3} BAB 2)`,
-        options: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
-        answer: "Pilihan A"
-    }))),
+        {
+            question: "Dalam penamaan ilmiah (Binomial Nomenclature), kata pertama menunjukkan...",
+            options: ["Spesies", "Genus", "Famili", "Ordo"],
+            answer: "Genus"
+        },
+        {
+            question: "Sistem klasifikasi 5 Kingdom diperkenalkan oleh...",
+            options: ["Carolus Linnaeus", "R.H. Whittaker", "Ernst Haeckel", "Gregor Mendel"],
+            answer: "R.H. Whittaker"
+        },
+        {
+            question: "Kelompok makhluk hidup yang seluruh anggotanya bersifat prokariotik adalah...",
+            options: ["Protista", "Fungi", "Monera", "Plantae"],
+            answer: "Monera"
+        },
+        {
+            question: "Tujuan utama dari klasifikasi makhluk hidup adalah...",
+            options: ["Mempercepat evolusi", "Mempermudah pengenalan dan studi", "Menciptakan spesies baru", "Menentukan usia fosil"],
+            answer: "Mempermudah pengenalan dan studi"
+        },
+        {
+            question: "Kingdom yang anggotanya mencakup alga, protozoa, dan jamur lendir adalah...",
+            options: ["Monera", "Fungi", "Plantae", "Protista"],
+            answer: "Protista"
+        },
+        {
+            question: "Dalam taksonomi, dua organisme yang berada dalam satu Genus yang sama pasti berada dalam satu...",
+            options: ["Spesies", "Ordo", "Famili", "Kelas"],
+            answer: "Famili"
+        },
+        {
+            question: "Padi (`Oryza sativa`) dan jagung (`Zea mays`) dikelompokkan dalam famili yang sama yaitu...",
+            options: ["Poaceae", "Fabaceae", "Solanaceae", "Malvaceae"],
+            answer: "Poaceae"
+        },
+        {
+            question: "Kunci determinasi digunakan dalam klasifikasi untuk...",
+            options: ["Mengumpulkan spesimen", "Menentukan posisi takson", "Menciptakan nama ilmiah", "Mengamati sel"],
+            answer: "Menentukan posisi takson"
+        },
+        {
+            question: "Kingdom Fungi memiliki ciri utama berupa...",
+            options: ["Autotrof dan berspora", "Eukariotik, tidak bergerak, dan dinding sel dari kitin", "Prokariotik dan heterotrof", "Multiseluler dan dapat berfotosintesis"],
+            answer: "Eukariotik, tidak bergerak, dan dinding sel dari kitin"
+        },
+        {
+            question: "Tingkat takson di bawah Ordo adalah...",
+            options: ["Kelas", "Filum", "Famili", "Genus"],
+            answer: "Famili"
+        },
+        {
+            question: "Organisme yang merupakan konsumen tingkat I (herbivora) umumnya berada di Kingdom...",
+            options: ["Plantae", "Animalia", "Monera", "Protista"],
+            answer: "Animalia"
+        },
+        {
+            question: "Cabang Biologi yang khusus mempelajari identifikasi dan penamaan makhluk hidup adalah...",
+            options: ["Anatomi", "Morfologi", "Taksonomi", "Ekologi"],
+            answer: "Taksonomi"
+        },
+        {
+            question: "Nama marga (Genus) dalam Binomial Nomenclature selalu ditulis diawali dengan huruf...",
+            options: ["Kecil", "Kapital", "Tegak", "Miring"],
+            answer: "Kapital"
+        },
+        {
+            question: "Makhluk hidup yang memiliki ciri eukariotik, bersel satu atau banyak, dan tidak memiliki jaringan sejati dikelompokkan dalam Kingdom...",
+            options: ["Monera", "Plantae", "Protista", "Animalia"],
+            answer: "Protista"
+        },
+        {
+            question: "Dua spesies dianggap paling dekat kekerabatannya jika mereka berada dalam...",
+            options: ["Famili yang berbeda", "Kelas yang sama", "Genus yang sama", "Filum yang berbeda"],
+            answer: "Genus yang sama"
+        },
+        {
+            question: "Contoh Kingdom yang semua anggotanya bersifat autotrof adalah...",
+            options: ["Animalia", "Fungi", "Plantae", "Protista"],
+            answer: "Plantae"
+        },
+        {
+            question: "Tingkat taksonomi di atas Kelas adalah...",
+            options: ["Ordo", "Filum", "Famili", "Spesies"],
+            answer: "Filum"
+        },
+        {
+            question: "Perbedaan utama antara tumbuhan Monokotil dan Dikotil dilihat dari...",
+            options: ["Habitatnya", "Jumlah kotiledon", "Jenis klorofil", "Cara berkembang biak"],
+            answer: "Jumlah kotiledon"
+        },
+    ],
 
+    // --- BAB 3: EKOSISTEM, PERUBAHAN DAN PELESTARIAN LINGKUNGAN (20 SOAL) ---
     "BAB 3 EKOSISTEM PERUBAHAN DAN PELESTARIAN LINGKUNGAN": [
         {
             question: "Unit fungsional dasar yang terdiri dari komunitas organisme dan lingkungan abiotiknya adalah...",
@@ -51,13 +222,99 @@ const QUIZ_DATA = {
             options: ["Bakteri", "Jamur", "Suhu dan Air", "Tumbuhan"],
             answer: "Suhu dan Air"
         },
-        // Tambahkan 18 soal lagi untuk BAB 3...
-    ].concat(Array(18).fill(null).map((_, i) => ({
-        question: `(Placeholder Soal ${i + 3} BAB 3)`,
-        options: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
-        answer: "Pilihan A"
-    }))),
-    
+        {
+            question: "Organisme yang berperan sebagai produsen dalam rantai makanan adalah...",
+            options: ["Hewan karnivora", "Semua jenis tumbuhan", "Hewan herbivora", "Bakteri pengurai"],
+            answer: "Semua jenis tumbuhan"
+        },
+        {
+            question: "Peristiwa meningkatnya suhu rata-rata atmosfer, laut, dan daratan Bumi secara bertahap disebut...",
+            options: ["Hujan asam", "Pemanasan global", "Eutrofikasi", "Efek rumah kaca"],
+            answer: "Pemanasan global"
+        },
+        {
+            question: "Zat pencemar yang berasal dari deterjen dan pupuk yang menyebabkan ledakan populasi alga di air adalah...",
+            options: ["Pestisida", "Fosfat dan Nitrat", "Timbal (Pb)", "Karbon monoksida (CO)"],
+            answer: "Fosfat dan Nitrat"
+        },
+        {
+            question: "Interaksi antara dua organisme yang keduanya memperoleh keuntungan disebut...",
+            options: ["Kompetisi", "Parasitisme", "Mutualisme", "Komensalisme"],
+            answer: "Mutualisme"
+        },
+        {
+            question: "Penyebab utama terjadinya hujan asam adalah tingginya konsentrasi gas...",
+            options: ["CO2 dan CO", "SO2 dan NO2", "Metana dan uap air", "Oksigen dan Nitrogen"],
+            answer: "SO2 dan NO2"
+        },
+        {
+            question: "Suksesi yang terjadi pada daerah yang sebelumnya sudah ada kehidupan, tetapi rusak akibat bencana, disebut...",
+            options: ["Suksesi primer", "Suksesi sekunder", "Klimaks", "Komunitas perintis"],
+            answer: "Suksesi sekunder"
+        },
+        {
+            question: "Organisme yang menduduki trofik ke-3 (konsumen II) dalam piramida makanan adalah...",
+            options: ["Produsen", "Herbivora", "Karnivora sekunder", "Dekomposer"],
+            answer: "Karnivora sekunder"
+        },
+        {
+            question: "Tindakan yang termasuk upaya pelestarian lingkungan secara *ex situ* adalah...",
+            options: ["Taman Nasional", "Suaka Margasatwa", "Kebun Raya", "Cagar Alam"],
+            answer: "Kebun Raya"
+        },
+        {
+            question: "Lapisan di atmosfer yang berfungsi melindungi Bumi dari radiasi UV berbahaya adalah...",
+            options: ["Troposfer", "Stratosfer (Ozon)", "Mesosfer", "Termosfer"],
+            answer: "Stratosfer (Ozon)"
+        },
+        {
+            question: "Aliran energi dalam ekosistem dimulai dari...",
+            options: ["Dekomposer", "Konsumen primer", "Matahari", "Konsumen tersier"],
+            answer: "Matahari"
+        },
+        {
+            question: "Deforestasi (penggundulan hutan) dapat mengganggu siklus biogeokimia, terutama siklus...",
+            options: ["Nitrogen", "Fosfor", "Air", "Sulfur"],
+            answer: "Air"
+        },
+        {
+            question: "Populasi adalah sekelompok individu dari spesies yang sama yang hidup di...",
+            options: ["Semua tempat di dunia", "Ekosistem yang berbeda", "Daerah dan waktu tertentu", "Kebun binatang"],
+            answer: "Daerah dan waktu tertentu"
+        },
+        {
+            question: "Konsep 3R dalam pengelolaan sampah adalah...",
+            options: ["Riset, Reduksi, Replikasi", "Reduce, Reuse, Recycle", "Regenerasi, Reboisasi, Reduksi", "Reorganisasi, Reaksi, Restorasi"],
+            answer: "Reduce, Reuse, Recycle"
+        },
+        {
+            question: "Indikator biologis yang sering digunakan untuk menentukan tingkat polusi udara adalah...",
+            options: ["Cacing tanah", "Lumut kerak (Lichenes)", "Ikan mas", "Semut"],
+            answer: "Lumut kerak (Lichenes)"
+        },
+        {
+            question: "Faktor abiotik yang sangat mempengaruhi laju fotosintesis produsen adalah...",
+            options: ["Kelembapan", "Cahaya Matahari", "Angin", "Topografi"],
+            answer: "Cahaya Matahari"
+        },
+        {
+            question: "Perubahan komunitas yang menuju keseimbangan lingkungan yang stabil disebut...",
+            options: ["Eutrofikasi", "Suksesi", "Klimaks", "Biomassa"],
+            answer: "Klimaks"
+        },
+        {
+            question: "Daerah yang memiliki keanekaragaman hayati sangat tinggi dan dilindungi disebut...",
+            options: ["Taman Kota", "Perkebunan", "Cagar Alam", "Pemukiman"],
+            answer: "Cagar Alam"
+        },
+        {
+            question: "Organisme yang hanya memakan produsen disebut...",
+            options: ["Karnivora", "Omnivora", "Herbivora", "Dekomposer"],
+            answer: "Herbivora"
+        },
+    ],
+
+    // --- BAB 4: BIOTEKNOLOGI (20 SOAL) ---
     "BAB 4 BIOTEKNOLOGI": [
         {
             question: "Bioteknologi yang menggunakan mikroorganisme secara langsung tanpa manipulasi genetik kompleks disebut...",
@@ -69,14 +326,98 @@ const QUIZ_DATA = {
             options: ["Tempe", "Yogurt", "Anggur", "Kecap"],
             answer: "Yogurt"
         },
-        // Tambahkan 18 soal lagi untuk BAB 4...
-    ].concat(Array(18).fill(null).map((_, i) => ({
-        question: `(Placeholder Soal ${i + 3} BAB 4)`,
-        options: ["Pilihan A", "Pilihan B", "Pilihan C", "Pilihan D"],
-        answer: "Pilihan A"
-    }))),
+        {
+            question: "Enzim yang berfungsi memotong DNA pada situs spesifik dalam teknik rekayasa genetika adalah...",
+            options: ["Ligase", "Polimerase", "Restriksi Endonuklease", "Reverse Transcriptase"],
+            answer: "Restriksi Endonuklease"
+        },
+        {
+            question: "Organisme yang telah disisipi gen dari spesies lain disebut...",
+            options: ["Hibrida", "Klon", "Transgenik", "Mutan"],
+            answer: "Transgenik"
+        },
+        {
+            question: "Proses pembuatan alkohol dari gula menggunakan mikroorganisme *Saccharomyces cerevisiae* adalah contoh dari...",
+            options: ["Fotosintesis", "Fermentasi", "Transplantasi", "Hidrolisis"],
+            answer: "Fermentasi"
+        },
+        {
+            question: "Pemanfaatan bakteri untuk membersihkan lingkungan yang tercemar (misalnya tumpahan minyak) disebut...",
+            options: ["Bioindikator", "Bioremediasi", "Bioakumulasi", "Biomagnifikasi"],
+            answer: "Bioremediasi"
+        },
+        {
+            question: "Berikut adalah produk bioteknologi modern, KECUALI...",
+            options: ["Insulin buatan", "Tanaman tahan hama", "Keju", "Vaksin subunit"],
+            answer: "Keju"
+        },
+        {
+            question: "Teknik perbanyakan tanaman secara vegetatif in vitro (dalam tabung) pada media nutrisi steril disebut...",
+            options: ["Inseminasi buatan", "Kultur jaringan", "Hibridisasi", "Transgenik"],
+            answer: "Kultur jaringan"
+        },
+        {
+            question: "Peran plasmid dalam rekayasa genetika adalah sebagai...",
+            options: ["Enzim", "Vektor (pembawa gen)", "Sel inang", "DNA target"],
+            answer: "Vektor (pembawa gen)"
+        },
+        {
+            question: "Kelebihan utama tanaman hasil rekayasa genetika (transgenik) dibandingkan tanaman konvensional adalah...",
+            options: ["Memiliki rasa yang lebih enak", "Masa tanam lebih lama", "Memiliki sifat unggul spesifik (misalnya tahan hama)", "Lebih murah untuk diproduksi"],
+            answer: "Memiliki sifat unggul spesifik (misalnya tahan hama)"
+        },
+        {
+            question: "Mikroorganisme yang berperan dalam pembuatan tempe adalah...",
+            options: ["Saccharomyces cerevisiae", "Rhizopus oryzae", "Acetobacter xylinum", "Lactobacillus bulgaricus"],
+            answer: "Rhizopus oryzae"
+        },
+        {
+            question: "Teknik kloning pada hewan bertujuan untuk...",
+            options: ["Mengubah jenis kelamin", "Menghasilkan individu identik", "Menciptakan spesies baru", "Mengobati penyakit genetik"],
+            answer: "Menghasilkan individu identik"
+        },
+        {
+            question: "Zat hasil bioteknologi yang digunakan untuk membekukan susu dalam pembuatan keju adalah...",
+            options: ["Lipase", "Amilase", "Renin (Rennet)", "Invertase"],
+            answer: "Renin (Rennet)"
+        },
+        {
+            question: "Bioteknologi di bidang forensik menggunakan teknik utama yaitu...",
+            options: ["Kultur jaringan", "Terapi gen", "DNA Fingerprinting", "Kloning"],
+            answer: "DNA Fingerprinting"
+        },
+        {
+            question: "Salah satu dampak negatif Bioteknologi Modern adalah potensi munculnya...",
+            options: ["Varietas unggul", "Spesies baru", "Keseimbangan ekosistem", "Resistensi hama terhadap pestisida alami"],
+            answer: "Resistensi hama terhadap pestisida alami"
+        },
+        {
+            question: "Pembuatan Nata de Coco melibatkan bakteri...",
+            options: ["Bacillus subtilis", "Acetobacter xylinum", "Streptococcus lactis", "Escherichia coli"],
+            answer: "Acetobacter xylinum"
+        },
+        {
+            question: "Proses memasukkan gen asing ke dalam sel inang menggunakan vektor disebut...",
+            options: ["Transformasi", "Transkripsi", "Translasi", "Replikasi"],
+            answer: "Transformasi"
+        },
+        {
+            question: "Bidang bioteknologi yang berkaitan dengan perbaikan kelainan genetik pada manusia disebut...",
+            options: ["Bioinformatika", "Terapi gen", "Rekayasa lingkungan", "Kloning terapeutik"],
+            answer: "Terapi gen"
+        },
+        {
+            question: "Mikroorganisme yang digunakan dalam pembuatan antibiotik penisilin adalah...",
+            options: ["Aspergillus oryzae", "Penicillium notatum", "Streptococcus mutans", "Rhizobium leguminosarum"],
+            answer: "Penicillium notatum"
+        },
+        {
+            question: "Enzim yang berfungsi menggabungkan kembali potongan-potongan DNA yang terpotong adalah...",
+            options: ["Restriksi", "Ligase", "Polimerase", "Helikase"],
+            answer: "Ligase"
+        },
+    ],
 };
-
 
 // === 2. LOGIKA UMUM ===
 const TOTAL_SOAL = 20;
@@ -90,7 +431,7 @@ let currentChapter = '';
 // === 3. FUNGSI Halaman UTAMA (index.html) ===
 if (document.getElementById('data-form')) {
     document.getElementById('data-form').addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // KUNCI: Mencegah reload halaman
         
         const nama = document.getElementById('nama').value.trim();
         const kelas = document.getElementById('kelas').value.trim();
@@ -104,6 +445,7 @@ if (document.getElementById('data-form')) {
                 kelas: kelas,
                 absen: absen
             }));
+            alertMessage.style.display = 'none';
             
             // Arahkan ke halaman pemilihan bab
             window.location.href = 'bab.html';
@@ -124,8 +466,13 @@ function displayChapterList() {
         return;
     }
 
-    document.getElementById('user-info').textContent = 
-        `Selamat datang, ${userData.nama} (${userData.kelas} / ${userData.absen})`;
+    // Pastikan elemen user-info ada di bab.html
+    const userInfoElement = document.getElementById('user-info');
+    if (userInfoElement) {
+        userInfoElement.textContent = 
+            `Selamat datang, ${userData.nama} (${userData.kelas} / ${userData.absen})`;
+    }
+
 
     chapterListDiv.innerHTML = '';
     
@@ -161,9 +508,13 @@ function displayChapterList() {
     });
 }
 
+// Pastikan fungsi dipanggil di DOMContentLoaded pada bab.html
+if (document.getElementById('chapter-list')) {
+    document.addEventListener('DOMContentLoaded', displayChapterList);
+}
+
 
 // === 5. FUNGSI Halaman KUIS (kuis.html) ===
-
 function startQuizPage() {
     currentChapter = localStorage.getItem('kuisCurrentChapter');
     if (!currentChapter || !QUIZ_DATA[currentChapter]) {
@@ -176,17 +527,16 @@ function startQuizPage() {
     currentQuestionIndex = parseInt(localStorage.getItem('kuisCurrentIndex')) || 0;
     score = parseInt(localStorage.getItem('kuisCurrentScore')) || 0;
 
-    document.getElementById('chapter-title').textContent = currentChapter;
+    const chapterTitle = document.getElementById('chapter-title');
+    if (chapterTitle) chapterTitle.textContent = currentChapter;
     
-    // Dapatkan elemen-elemen DOM
     const submitBtn = document.getElementById('submit-btn');
-    
-    // Pasang Event Listener awal
-    submitBtn.addEventListener('click', checkAnswer);
+    if (submitBtn) {
+        submitBtn.addEventListener('click', checkAnswer);
+    }
     
     loadQuestion();
 }
-
 
 function loadQuestion() {
     const questions = QUIZ_DATA[currentChapter];
@@ -195,29 +545,36 @@ function loadQuestion() {
         const currentQ = questions[currentQuestionIndex];
         
         // Update tampilan
-        document.getElementById('question-counter').textContent = `Soal ${currentQuestionIndex + 1}/${questions.length}`;
-        document.getElementById('question-text').textContent = currentQ.question;
+        const questionCounter = document.getElementById('question-counter');
+        const questionText = document.getElementById('question-text');
         const optionsArea = document.getElementById('options-area');
         const submitBtn = document.getElementById('submit-btn');
         const feedback = document.getElementById('feedback');
 
-        optionsArea.innerHTML = ''; 
+        if (questionCounter) questionCounter.textContent = `Soal ${currentQuestionIndex + 1}/${questions.length}`;
+        if (questionText) questionText.textContent = currentQ.question;
+        
+        if (optionsArea) optionsArea.innerHTML = ''; 
         selectedAnswer = null;
-        submitBtn.disabled = true;
-        feedback.textContent = '';
-        submitBtn.textContent = 'Jawab';
-        submitBtn.classList.remove('btn-warning');
-        submitBtn.classList.add('btn-success');
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Jawab';
+            submitBtn.classList.remove('btn-warning');
+            submitBtn.classList.add('btn-success');
+        }
+        if (feedback) feedback.textContent = '';
 
 
         // Buat dan Tampilkan Pilihan Jawaban
-        currentQ.options.forEach(option => {
-            const button = document.createElement('button');
-            button.textContent = option;
-            button.classList.add('btn', 'btn-outline-primary', 'option-btn');
-            button.addEventListener('click', () => selectAnswer(option, button));
-            optionsArea.appendChild(button);
-        });
+        if (optionsArea) {
+             currentQ.options.forEach(option => {
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.classList.add('btn', 'btn-outline-primary', 'option-btn');
+                button.addEventListener('click', () => selectAnswer(option, button));
+                optionsArea.appendChild(button);
+            });
+        }
 
     } else {
         // Kuis Selesai!
@@ -236,7 +593,8 @@ function selectAnswer(option, button) {
     button.classList.remove('btn-outline-primary');
     button.classList.add('btn-primary', 'selected');
     selectedAnswer = option;
-    document.getElementById('submit-btn').disabled = false;
+    const submitBtn = document.getElementById('submit-btn');
+    if (submitBtn) submitBtn.disabled = false;
 }
 
 function checkAnswer() {
@@ -252,14 +610,18 @@ function checkAnswer() {
 
     if (selectedAnswer === currentQ.answer) {
         score += POIN_PER_SOAL; // Tambahkan 5 poin
-        feedback.textContent = "✅ Jawaban Benar! Anda mendapat 5 poin.";
-        feedback.classList.remove('text-danger');
-        feedback.classList.add('text-success');
+        if (feedback) {
+            feedback.textContent = "✅ Jawaban Benar! Anda mendapat 5 poin.";
+            feedback.classList.remove('text-danger');
+            feedback.classList.add('text-success');
+        }
 
     } else {
-        feedback.textContent = `❌ Jawaban Salah. Jawaban yang benar adalah: ${currentQ.answer}`;
-        feedback.classList.remove('text-success');
-        feedback.classList.add('text-danger');
+        if (feedback) {
+            feedback.textContent = `❌ Jawaban Salah. Jawaban yang benar adalah: ${currentQ.answer}`;
+            feedback.classList.remove('text-success');
+            feedback.classList.add('text-danger');
+        }
     }
 
     // Tampilkan jawaban yang benar/salah pada tombol
@@ -278,12 +640,14 @@ function checkAnswer() {
     // Simpan status kuis
     localStorage.setItem('kuisCurrentScore', score);
     
-    submitBtn.textContent = 'Lanjut';
-    submitBtn.removeEventListener('click', checkAnswer);
-    submitBtn.addEventListener('click', nextQuestion);
-    submitBtn.classList.remove('btn-success');
-    submitBtn.classList.add('btn-warning');
-    submitBtn.disabled = false; 
+    if (submitBtn) {
+        submitBtn.textContent = 'Lanjut';
+        submitBtn.removeEventListener('click', checkAnswer);
+        submitBtn.addEventListener('click', nextQuestion);
+        submitBtn.classList.remove('btn-success');
+        submitBtn.classList.add('btn-warning');
+        submitBtn.disabled = false;
+    }
 }
 
 function nextQuestion() {
@@ -291,8 +655,10 @@ function nextQuestion() {
     localStorage.setItem('kuisCurrentIndex', currentQuestionIndex);
     
     const submitBtn = document.getElementById('submit-btn');
-    submitBtn.removeEventListener('click', nextQuestion);
-    submitBtn.addEventListener('click', checkAnswer);
+    if (submitBtn) {
+        submitBtn.removeEventListener('click', nextQuestion);
+        submitBtn.addEventListener('click', checkAnswer);
+    }
     
     loadQuestion();
 }
@@ -300,6 +666,11 @@ function nextQuestion() {
 function showResult() {
     // Arahkan ke halaman hasil
     window.location.href = 'hasil.html';
+}
+
+// Panggil startQuizPage saat DOMContentLoaded di kuis.html
+if (document.getElementById('quiz-area')) {
+    document.addEventListener('DOMContentLoaded', startQuizPage);
 }
 
 
@@ -311,9 +682,15 @@ function displayResultPage() {
     const resultMessageDiv = document.getElementById('result-message');
     const restartBtn = document.getElementById('restart-btn');
 
-    document.getElementById('final-score').textContent = finalScore;
-    document.getElementById('player-data').textContent = 
-        `Pemain: ${userData.nama} | Bab: ${localStorage.getItem('kuisCurrentChapter')}`;
+    const finalScoreElement = document.getElementById('final-score');
+    if (finalScoreElement) finalScoreElement.textContent = finalScore;
+    
+    const playerDataElement = document.getElementById('player-data');
+    if (playerDataElement) {
+        playerDataElement.textContent = 
+            `Pemain: ${userData ? userData.nama : 'Anonim'} | Bab: ${localStorage.getItem('kuisCurrentChapter') || 'Tidak diketahui'}`;
+    }
+
 
     let messageHtml = '';
 
@@ -331,7 +708,7 @@ function displayResultPage() {
                 <p class="mb-0">Nilai Anda ${finalScore}. Jangan menyerah, pelajari lagi materinya!</p>
                 
 
-[Image of sad face emoji]
+[Image of Try Again]
 
             </div>
         `;
@@ -344,14 +721,21 @@ function displayResultPage() {
         `;
     }
     
-    resultMessageDiv.innerHTML = messageHtml;
+    if (resultMessageDiv) resultMessageDiv.innerHTML = messageHtml;
 
     // Bersihkan LocalStorage yang tidak perlu setelah kuis selesai
     localStorage.removeItem('kuisCurrentScore');
     localStorage.removeItem('kuisCurrentIndex');
-    localStorage.removeItem('kuisCurrentChapter');
+    // Tidak menghapus 'kuisCurrentChapter' karena mungkin masih ingin ditampilkan di hasil
 
-    restartBtn.addEventListener('click', () => {
-        window.location.href = 'bab.html';
-    });
+    if (restartBtn) {
+        restartBtn.addEventListener('click', () => {
+            window.location.href = 'bab.html';
+        });
+    }
+}
+
+// Panggil displayResultPage saat DOMContentLoaded di hasil.html
+if (document.getElementById('result-area')) {
+    document.addEventListener('DOMContentLoaded', displayResultPage);
 }
