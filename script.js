@@ -1,6 +1,6 @@
-// script.js (Versi 80 Soal Asli - 20 Soal per Bab)
+// script.js (Versi Final dengan 20 Soal Asli per Bab)
 
-// === 1. DATA PERTANYAAN (TOTAL 80 SOAL) ===
+// === 1. DATA PERTANYAAN (TOTAL 80 SOAL ASLI) ===
 const QUIZ_DATA = {
     // --- BAB 1: VIRUS (20 SOAL) ---
     "BAB 1 VIRUS": [
@@ -419,9 +419,10 @@ const QUIZ_DATA = {
     ],
 };
 
-// === 2. LOGIKA UMUM ===
+
+// === 2. LOGIKA UMUM (Tetap Sama) ===
 const TOTAL_SOAL = 20;
-const POIN_PER_SOAL = 5; // Total skor 20 * 5 = 100
+const POIN_PER_SOAL = 5; 
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -431,7 +432,7 @@ let currentChapter = '';
 // === 3. FUNGSI Halaman UTAMA (index.html) ===
 if (document.getElementById('data-form')) {
     document.getElementById('data-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // KUNCI: Mencegah reload halaman
+        e.preventDefault(); 
         
         const nama = document.getElementById('nama').value.trim();
         const kelas = document.getElementById('kelas').value.trim();
@@ -439,7 +440,6 @@ if (document.getElementById('data-form')) {
         const alertMessage = document.getElementById('alert-message');
 
         if (nama && kelas && absen) {
-            // Simpan data pemain ke LocalStorage
             localStorage.setItem('kuisDataPemain', JSON.stringify({
                 nama: nama,
                 kelas: kelas,
@@ -447,7 +447,6 @@ if (document.getElementById('data-form')) {
             }));
             alertMessage.style.display = 'none';
             
-            // Arahkan ke halaman pemilihan bab
             window.location.href = 'bab.html';
         } else {
             alertMessage.style.display = 'block';
@@ -461,12 +460,10 @@ function displayChapterList() {
     const userData = JSON.parse(localStorage.getItem('kuisDataPemain'));
     
     if (!userData) {
-        // Jika data pemain hilang, kembalikan ke halaman utama
         window.location.href = 'index.html';
         return;
     }
 
-    // Pastikan elemen user-info ada di bab.html
     const userInfoElement = document.getElementById('user-info');
     if (userInfoElement) {
         userInfoElement.textContent = 
@@ -479,7 +476,6 @@ function displayChapterList() {
     Object.keys(QUIZ_DATA).forEach(chapterName => {
         const totalSoal = QUIZ_DATA[chapterName].length;
         
-        // Buat card untuk setiap bab
         const cardHtml = `
             <div class="col">
                 <div class="card h-100 shadow-sm">
@@ -496,19 +492,17 @@ function displayChapterList() {
         chapterListDiv.innerHTML += cardHtml;
     });
     
-    // Tambahkan event listener untuk semua tombol "Mulai Kuis"
     document.querySelectorAll('.start-quiz-btn').forEach(button => {
         button.addEventListener('click', function() {
             const chapter = this.getAttribute('data-chapter');
             localStorage.setItem('kuisCurrentChapter', chapter);
-            localStorage.removeItem('kuisCurrentScore'); // Reset skor
-            localStorage.removeItem('kuisCurrentIndex'); // Reset index
+            localStorage.removeItem('kuisCurrentScore'); 
+            localStorage.removeItem('kuisCurrentIndex'); 
             window.location.href = 'kuis.html';
         });
     });
 }
 
-// Pastikan fungsi dipanggil di DOMContentLoaded pada bab.html
 if (document.getElementById('chapter-list')) {
     document.addEventListener('DOMContentLoaded', displayChapterList);
 }
@@ -523,7 +517,6 @@ function startQuizPage() {
         return;
     }
     
-    // Muat status kuis jika ada (untuk melanjutkan)
     currentQuestionIndex = parseInt(localStorage.getItem('kuisCurrentIndex')) || 0;
     score = parseInt(localStorage.getItem('kuisCurrentScore')) || 0;
 
@@ -544,7 +537,6 @@ function loadQuestion() {
     if (currentQuestionIndex < questions.length) {
         const currentQ = questions[currentQuestionIndex];
         
-        // Update tampilan
         const questionCounter = document.getElementById('question-counter');
         const questionText = document.getElementById('question-text');
         const optionsArea = document.getElementById('options-area');
@@ -565,31 +557,27 @@ function loadQuestion() {
         if (feedback) feedback.textContent = '';
 
 
-        // Buat dan Tampilkan Pilihan Jawaban
         if (optionsArea) {
              currentQ.options.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option;
-                button.classList.add('btn', 'btn-outline-primary', 'option-btn');
+                button.classList.add('btn', 'btn-outline-primary', 'option-btn', 'text-start'); // text-start agar opsi rata kiri
                 button.addEventListener('click', () => selectAnswer(option, button));
                 optionsArea.appendChild(button);
             });
         }
 
     } else {
-        // Kuis Selesai!
         showResult();
     }
 }
 
 function selectAnswer(option, button) {
-    // Hapus class 'selected' dari semua tombol
     document.querySelectorAll('.option-btn').forEach(btn => {
         btn.classList.remove('selected', 'btn-primary');
         btn.classList.add('btn-outline-primary');
     });
 
-    // Tandai tombol yang dipilih
     button.classList.remove('btn-outline-primary');
     button.classList.add('btn-primary', 'selected');
     selectedAnswer = option;
@@ -605,11 +593,10 @@ function checkAnswer() {
     const feedback = document.getElementById('feedback');
     const submitBtn = document.getElementById('submit-btn');
     
-    // Non-aktifkan semua tombol pilihan setelah menjawab
     optionButtons.forEach(btn => btn.disabled = true);
 
     if (selectedAnswer === currentQ.answer) {
-        score += POIN_PER_SOAL; // Tambahkan 5 poin
+        score += POIN_PER_SOAL; 
         if (feedback) {
             feedback.textContent = "✅ Jawaban Benar! Anda mendapat 5 poin.";
             feedback.classList.remove('text-danger');
@@ -624,7 +611,6 @@ function checkAnswer() {
         }
     }
 
-    // Tampilkan jawaban yang benar/salah pada tombol
     optionButtons.forEach(btn => {
         btn.classList.remove('selected', 'btn-primary', 'btn-outline-primary'); 
         
@@ -637,7 +623,6 @@ function checkAnswer() {
         }
     });
 
-    // Simpan status kuis
     localStorage.setItem('kuisCurrentScore', score);
     
     if (submitBtn) {
@@ -664,18 +649,15 @@ function nextQuestion() {
 }
 
 function showResult() {
-    // Arahkan ke halaman hasil
     window.location.href = 'hasil.html';
 }
 
-// Panggil startQuizPage saat DOMContentLoaded di kuis.html
 if (document.getElementById('quiz-area')) {
     document.addEventListener('DOMContentLoaded', startQuizPage);
 }
 
 
 // === 6. FUNGSI Halaman HASIL (hasil.html) ===
-
 function displayResultPage() {
     const finalScore = parseInt(localStorage.getItem('kuisCurrentScore')) || 0;
     const userData = JSON.parse(localStorage.getItem('kuisDataPemain'));
@@ -703,7 +685,7 @@ function displayResultPage() {
         `;
     } else if (finalScore < 75) {
         messageHtml = `
-            <div class="alert alert-danger mt-4">
+            <div class="alert alert-danger mt-4 text-center">
                 <h3 class="alert-heading">Coba Lagi! 😢</h3>
                 <p class="mb-0">Nilai Anda ${finalScore}. Jangan menyerah, pelajari lagi materinya!</p>
                 
@@ -723,10 +705,9 @@ function displayResultPage() {
     
     if (resultMessageDiv) resultMessageDiv.innerHTML = messageHtml;
 
-    // Bersihkan LocalStorage yang tidak perlu setelah kuis selesai
     localStorage.removeItem('kuisCurrentScore');
     localStorage.removeItem('kuisCurrentIndex');
-    // Tidak menghapus 'kuisCurrentChapter' karena mungkin masih ingin ditampilkan di hasil
+    // localStorage.removeItem('kuisCurrentChapter'); // Dibiarkan agar ditampilkan di hasil
 
     if (restartBtn) {
         restartBtn.addEventListener('click', () => {
@@ -735,7 +716,6 @@ function displayResultPage() {
     }
 }
 
-// Panggil displayResultPage saat DOMContentLoaded di hasil.html
 if (document.getElementById('result-area')) {
     document.addEventListener('DOMContentLoaded', displayResultPage);
 }
