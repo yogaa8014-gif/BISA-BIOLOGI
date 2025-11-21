@@ -1,46 +1,75 @@
 /* style.css */
 
 body {
-    /* Mengatur gambar sebagai latar belakang */
-    background-image: url('WhatsApp Image 2025-11-21 at 11.26.57.jpeg');
-    
-    /* Mengatur agar gambar menutupi seluruh area background */
-    background-size: cover; 
-    
-    /* Mengatur agar gambar tidak terulang */
-    background-repeat: no-repeat;
-    
-    /* Mengatur agar gambar tetap pada posisinya saat halaman di-scroll */
-    background-attachment: fixed;
-    
-    /* Memposisikan gambar di tengah */
-    background-position: center center;
+    /* Hapus properti background-image, background-size, dll. dari body langsung */
+    /* Karena kita akan menggunakannya pada elemen pseudo ::before */
+    background-color: #e2f7e2; /* Warna cadangan jika gambar gagal dimuat */
 
-    /* Opsional: Memberi warna latar belakang cadangan jika gambar gagal dimuat */
-    background-color: #e2f7e2; /* Warna hijau muda */
-
-    /* Properti lain yang mungkin sudah ada, jangan dihapus */
+    /* Properti flexbox untuk memposisikan konten di tengah */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-vh-100;
+    min-height: 100vh; /* Pastikan body mengambil tinggi penuh viewport */
+    margin: 0; /* Hapus margin default body */
+    position: relative; /* Penting untuk positioning elemen ::before */
+    overflow: hidden; /* Mencegah scrollbar jika ada elemen yang keluar */
 }
 
-/* Jika Anda ingin konten card tetap terbaca, Anda bisa menambahkan sedikit transparansi pada card */
-.card {
-    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan sedikit transparansi */
-    border-radius: 15px; /* Opsional: sedikit lengkungan pada sudut card */
-    padding: 20px;
+/* Elemen pseudo untuk latar belakang gambar yang di-blur */
+body::before {
+    content: ''; /* Konten kosong diperlukan untuk elemen pseudo */
+    position: absolute; /* Posisikan absolut agar menutupi seluruh body */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Atur gambar sebagai latar belakang pada elemen pseudo */
+    background-image: url('WhatsApp Image 2025-11-21 at 11.26.57.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    
+    /* === Properti untuk BLUR === */
+    filter: blur(5px); /* Sesuaikan nilai (misal: 3px untuk blur sangat tipis, 10px untuk lebih blur) */
+    
+    /* Pastikan elemen pseudo berada di bawah konten utama */
+    z-index: -1; 
 }
 
-/* Anda juga bisa menambahkan overlay gelap agar tulisan lebih kontras */
-.body::before {
+/* Menambahkan sedikit overlay gelap di atas gambar blur (opsional, untuk kontras teks) */
+body::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Overlay hitam transparan */
-    z-index: -1; /* Pastikan overlay di belakang konten */
+    background-color: rgba(0, 0, 0, 0.2); /* Overlay hitam transparan */
+    z-index: -1; /* Di bawah konten, di atas background blur */
+}
+
+
+/* Styling untuk card agar tetap terlihat jelas di atas background blur */
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang putih dengan sedikit transparansi */
+    border-radius: 15px; 
+    padding: 20px;
+    z-index: 1; /* Pastikan card di atas elemen ::before dan ::after */
+}
+
+/* Styling untuk teks-teks utama di halaman agar jelas */
+h1, h2, h3, h4, h5, p, label {
+    color: #333; /* Warna teks gelap agar kontras dengan background putih card */
+    /* Anda bisa spesifik jika ingin warna teks berbeda di card */
+}
+
+/* Jika Anda memiliki teks langsung di body di luar card (misal: judul Selamat Datang) */
+/* Pastikan warna teksnya kontras dengan background blur */
+.text-center.mb-5.text-success { /* ini adalah h1 di index.html */
+    color: #fff; /* Atau warna terang lain yang kontras */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7); /* Tambahkan shadow agar lebih menonjol */
+    z-index: 1; /* Pastikan di atas background blur */
+    position: relative; /* Penting agar z-index bekerja */
 }
